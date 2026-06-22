@@ -60,14 +60,20 @@ test.describe('Корзина', () => {
     await expect(inventory.cartBadge).toContainText('1'); // бейдж корзины показывает "1"
   });
 
-    // ТЕСТ TC-3
-  //test('Успешный логин', async ({ page }) => {
-    // ACT — действия
-    // ...
+
+
+    // ТЕСТ TC-04: Удаление товара из корзины
+  test('TC-04: Удаление товара из корзины', async ({ page }) => {   // { page } — ФИКСТУРА (своя, свежая для этого теста)
+    // ACT — действия - создать объект Inventory (как создавала LoginPage), вызвать addFirstItemToCart()
+    const inventory = new Inventory(page); // объект страницы товаров
+    await inventory.addFirstItemToCart(); // кликаем «Add to cart» у первого товара
+    await expect(inventory.cartBadge).toContainText('1'); // бейдж корзины показывает "1"
+    await inventory.removeFirstItem(); //удаляем
 
     // ASSERT — проверки
-    // ...
- // });
+    await expect(inventory.cartBadge).not.toBeVisible(); // бэйджа нет
+  });
+
 
 
 });
