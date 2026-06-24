@@ -14,6 +14,7 @@ export class LoginPage {
     this.passwordInput = saucedemoSite.locator('[data-test="password"]');
     this.loginButton = saucedemoSite.locator('[data-test="login-button"]');
     // ! Тонкость: .locator(...) пока ничего не ищет на странице — он просто запоминает «как искать». Реальный поиск произойдёт позже, когда метод login() сделает .fill() или .click() по этому локатору.
+    this.errorMessage = saucedemoSite.locator('[data-test="error"]');
   }
 
   // Конструктор = «паспорт страницы», заполняется при создании объекта:

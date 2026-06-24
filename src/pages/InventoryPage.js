@@ -1,8 +1,8 @@
-export class Inventory {
+export class InventoryPage {
   // КЛАСС (чертёж). Большая буква = класс
 
   constructor(inventoryPage) {
-    // ПАРАМЕТР: принимает фикстуру page, переданную из теста (new Inventory(page)). Имя параметра я выбрала сама
+    // ПАРАМЕТР: принимает фикстуру page, переданную из теста (new InventoryPage(page)). Имя параметра я выбрала сама
     this.page = inventoryPage; // this.page — СВОЙСТВО объекта (слева) = параметр inventoryPage (справа). Сохраняю вкладку внутрь объекта
     // справа inventoryPage — параметр конструктора (вкладка из теста). Живёт только внутри конструктора.
     // слева this.page — постоянное свойство объекта: чтобы вкладка не потерялась и методы могли ею пользоваться позже через this.page.
@@ -15,6 +15,8 @@ export class Inventory {
     this.removeButton = inventoryPage.getByRole('button', { name: 'Remove' }).first(); // СВОЙСТВО-локатор ← кнопка «Remove» (первая)
 
     this.cartButton = inventoryPage.locator('[data-test="shopping-cart-link"]'); // СВОЙСТВО-локатор ← иконка-ссылка корзины (переход на /cart.html)
+
+    this.title = inventoryPage.locator('[data-test="title"]');
 
     // ! Тонкость: локатор пока ничего не ищет на странице — он просто запоминает «как искать». Реальный поиск произойдёт позже, когда метод сделает .click().
   }

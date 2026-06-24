@@ -1,8 +1,8 @@
-export class CheckoutOne {
+export class CheckoutOnePage {
   // КЛАСС (чертёж). Большая буква = класс
 
   constructor(checkoutOnePage) {
-    // ПАРАМЕТР: принимает фикстуру page из теста (new CheckoutOne(page)). Имя параметра я выбрала сама
+    // ПАРАМЕТР: принимает фикстуру page из теста (new CheckoutOnePage(page)). Имя параметра я выбрала сама
     this.page = checkoutOnePage; // this.page — СВОЙСТВО объекта (слева) = параметр checkoutOnePage (справа). Сохраняю вкладку внутрь объекта
     // справа checkoutOnePage — параметр конструктора (вкладка из теста). Живёт только внутри конструктора.
     // слева this.page — постоянное свойство объекта: чтобы вкладка не потерялась и методы могли ею пользоваться позже через this.page.

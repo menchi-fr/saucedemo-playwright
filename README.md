@@ -44,15 +44,17 @@ npm run format             # отформатировать всё Prettier'ом
 ```
 saucedemo-playwright/
 ├── tests/                 # спек-файлы с тестами (testDir)
-│   └── login.spec.js      # TC-01…TC-05 (логин + корзина + флоу покупки)
+│   ├── login.spec.js      # TC-01, TC-02 (логин)
+│   ├── cart.spec.js       # TC-03, TC-04 (корзина)
+│   └── checkout.spec.js   # TC-05 (полный флоу покупки)
 ├── src/
 │   ├── pages/             # Page Object — локаторы и действия страниц
 │   │   ├── LoginPage.js
-│   │   ├── Inventory.js
-│   │   ├── Cart.js
-│   │   ├── CheckoutOne.js       # форма данных (step one)
-│   │   ├── CheckoutTwo.js       # overview (step two), кнопка Finish
-│   │   └── CheckoutComplete.js  # экран «Thank you for your order!»
+│   │   ├── InventoryPage.js
+│   │   ├── CartPage.js
+│   │   ├── CheckoutOnePage.js       # форма данных (step one)
+│   │   ├── CheckoutTwoPage.js       # overview (step two), кнопка Finish
+│   │   └── CheckoutCompletePage.js  # экран «Thank you for your order!»
 │   └── data/              # тестовые данные (логины, пароли и т.п.)
 │       └── users.js
 ├── TEST_CASES.md          # ручные тест-кейсы (шаги + ожидаемый результат)
