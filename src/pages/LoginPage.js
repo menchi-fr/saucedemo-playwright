@@ -8,13 +8,14 @@ export class LoginPage {
     // справа saucedemoSite — это параметр конструктора (вкладка, прилетевшая из теста). Но беда: параметр живёт только внутри конструктора. Как только конструктор отработал — он исчезает.
     // поэтому левый this.page — Зачем: чтобы вкладка не потерялась и метод login() мог ею пользоваться позже через this.page. Без этой строки в login() не было бы доступа к вкладке.
     // Имена слева и справа теперь РАЗНЫЕ (this.page и saucedemoSite) — видно, что это разные вещи: слева — свойство объекта, справа — параметр. Имя параметра произвольное.
-    this.usernameInput = saucedemoSite.locator('[data-test="username"]'); // this.usernameInput — СВОЙСТВО-локатор ← ЛОКАТОРЫ
+    this.usernameInput = saucedemoSite.getByTestId('username'); // this.usernameInput — СВОЙСТВО-локатор ← ЛОКАТОРЫ
     //свойство объекта (имя придумала я, camelCase).
-    // = page.locator('[data-test="username"]') — «найди на открытой вкладке элемент с атрибутом data-test="username"».
-    this.passwordInput = saucedemoSite.locator('[data-test="password"]');
-    this.loginButton = saucedemoSite.locator('[data-test="login-button"]');
-    // ! Тонкость: .locator(...) пока ничего не ищет на странице — он просто запоминает «как искать». Реальный поиск произойдёт позже, когда метод login() сделает .fill() или .click() по этому локатору.
-    this.errorMessage = saucedemoSite.locator('[data-test="error"]');
+    // getByTestId('username') = короткая форма от .locator('[data-test="username"]') — «найди на открытой вкладке элемент с атрибутом data-test="username"».
+    // Чтобы getByTestId искал именно по data-test (а не по дефолтному data-testid), один раз указано в playwright.config.js → use.testIdAttribute: 'data-test'.
+    this.passwordInput = saucedemoSite.getByTestId('password');
+    this.loginButton = saucedemoSite.getByTestId('login-button');
+    // ! Тонкость: getByTestId(...) (как и .locator(...)) пока ничего не ищет на странице — он просто возвращает локатор, который запоминает «как искать». Реальный поиск произойдёт позже, когда метод login() сделает .fill() или .click() по этому локатору.
+    this.errorMessage = saucedemoSite.getByTestId('error');
   }
 
   // Конструктор = «паспорт страницы», заполняется при создании объекта:

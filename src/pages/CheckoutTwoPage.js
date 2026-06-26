@@ -7,7 +7,7 @@ export class CheckoutTwoPage {
     // справа checkoutTwoPage — параметр конструктора (вкладка из теста). Живёт только внутри конструктора.
     // слева this.page — постоянное свойство объекта: чтобы вкладка не потерялась и методы могли ею пользоваться позже через this.page.
 
-    this.finishButton = checkoutTwoPage.locator('[data-test="finish"]'); // СВОЙСТВО-локатор ← кнопка «Finish»
+    this.finishButton = checkoutTwoPage.getByTestId('finish'); // СВОЙСТВО-локатор ← кнопка «Finish»
 
     // ! Тонкость: локатор пока ничего не ищет на странице — он просто запоминает «как искать». Реальный поиск произойдёт позже, когда метод сделает .click().
   }

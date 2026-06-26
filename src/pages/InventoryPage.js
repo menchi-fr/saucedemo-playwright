@@ -10,13 +10,13 @@ export class InventoryPage {
     this.addToCartButton = inventoryPage.getByRole('button', { name: 'Add to cart' }).first(); // СВОЙСТВО-локатор ← кнопка «Add to cart»
     // getByRole(...) находит ВСЕ кнопки «Add to cart»; .first() берёт первую — нам неважно, какой товар.
 
-    this.cartBadge = inventoryPage.locator('[data-test="shopping-cart-badge"]'); // СВОЙСТВО-локатор ← бейдж корзины (циферка над иконкой)
+    this.cartBadge = inventoryPage.getByTestId('shopping-cart-badge'); // СВОЙСТВО-локатор ← бейдж корзины (циферка над иконкой)
 
     this.removeButton = inventoryPage.getByRole('button', { name: 'Remove' }).first(); // СВОЙСТВО-локатор ← кнопка «Remove» (первая)
 
-    this.cartButton = inventoryPage.locator('[data-test="shopping-cart-link"]'); // СВОЙСТВО-локатор ← иконка-ссылка корзины (переход на /cart.html)
+    this.cartButton = inventoryPage.getByTestId('shopping-cart-link'); // СВОЙСТВО-локатор ← иконка-ссылка корзины (переход на /cart.html)
 
-    this.title = inventoryPage.locator('[data-test="title"]');
+    this.title = inventoryPage.getByTestId('title');
 
     // ! Тонкость: локатор пока ничего не ищет на странице — он просто запоминает «как искать». Реальный поиск произойдёт позже, когда метод сделает .click().
   }

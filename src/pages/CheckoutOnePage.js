@@ -7,10 +7,10 @@ export class CheckoutOnePage {
     // справа checkoutOnePage — параметр конструктора (вкладка из теста). Живёт только внутри конструктора.
     // слева this.page — постоянное свойство объекта: чтобы вкладка не потерялась и методы могли ею пользоваться позже через this.page.
 
-    this.firstnameInput = checkoutOnePage.locator('[data-test="firstName"]'); // СВОЙСТВО-локатор ← поле First Name
-    this.lastnameInput = checkoutOnePage.locator('[data-test="lastName"]'); // СВОЙСТВО-локатор ← поле Last Name
-    this.zipcodeInput = checkoutOnePage.locator('[data-test="postalCode"]'); // СВОЙСТВО-локатор ← поле Zip/Postal Code
-    this.continueButton = checkoutOnePage.locator('[data-test="continue"]'); // СВОЙСТВО-локатор ← кнопка «Continue»
+    this.firstnameInput = checkoutOnePage.getByTestId('firstName'); // СВОЙСТВО-локатор ← поле First Name
+    this.lastnameInput = checkoutOnePage.getByTestId('lastName'); // СВОЙСТВО-локатор ← поле Last Name
+    this.zipcodeInput = checkoutOnePage.getByTestId('postalCode'); // СВОЙСТВО-локатор ← поле Zip/Postal Code
+    this.continueButton = checkoutOnePage.getByTestId('continue'); // СВОЙСТВО-локатор ← кнопка «Continue»
 
     // ! Тонкость: локатор пока ничего не ищет на странице — он просто запоминает «как искать». Реальный поиск произойдёт позже, когда метод сделает .fill()/.click().
   }

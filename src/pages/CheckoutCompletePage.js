@@ -7,7 +7,7 @@ export class CheckoutCompletePage {
     // справа checkoutComplete — параметр конструктора (вкладка из теста). Живёт только внутри конструктора.
     // слева this.page — постоянное свойство объекта: чтобы вкладка не потерялась и методы могли ею пользоваться позже через this.page.
 
-    this.checkoutComplete = checkoutComplete.locator('[data-test="checkout-complete-container"]'); // СВОЙСТВО-локатор ← контейнер успеха (внутри «Thank you for your order!» + подпись + кнопка)
+    this.checkoutComplete = checkoutComplete.getByTestId('checkout-complete-container'); // СВОЙСТВО-локатор ← контейнер успеха (внутри «Thank you for your order!» + подпись + кнопка)
     // ! Тонкость: локатор пока ничего не ищет на странице — он просто запоминает «как искать». Реальный поиск произойдёт позже, когда тест сделает по нему expect.
     // Проверять будем через toContainText («содержит»), т.к. в контейнере текста больше одной фразы.
   }
